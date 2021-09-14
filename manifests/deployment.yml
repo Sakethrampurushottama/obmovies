@@ -1,0 +1,19 @@
+apiVersion : apps/v1
+kind: Deployment
+metadata:
+  name: sakethrampurushottamaobmovies 
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: sakethrampurushottamaobmovies
+  template:
+    metadata:
+      labels:
+        app: sakethrampurushottamaobmovies 
+    spec:
+      containers:
+        - name: sakethrampurushottamaobmovies 
+          image: obmoviesacr.azurecr.io/sakethrampurushottamaobmovies
+          ports:
+          - containerPort: 5000
