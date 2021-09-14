@@ -1,14 +1,14 @@
-FROM python:3.8
+FROM python:3.9
 
-RUN mkdir /app
 
-WORKDIR /app/
+COPY requirements.txt /usr/src/app/
+RUN pip install --no-cache-dir -r /usr/src/app/requirements.txt
 
-ADD . /app/
+COPY . /usr/src/app/
 
 ENV LISTEN_PORT=5000
 EXPOSE 5000
 
-RUN pip install -r requirements.txt
+CMD ["ls -a", "/usr/src/app/"]
 
-CMD ["python", "/app/run.py"]
+CMD ["python", "/usr/src/app/run.py"]
